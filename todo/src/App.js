@@ -6,6 +6,7 @@ import "./App.css";
 class App extends Component {
   onTaskSubmit = e => {
     e.preventDefault();
+    console.log(e.target.firstChild.value);
     this.props.addTask(e.target.firstChild.value);
     e.target.firstChild.value = "";
   };

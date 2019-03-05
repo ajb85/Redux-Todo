@@ -4,6 +4,7 @@ export const CLEAR_COMPLETE = "CLEAR_COMPLETE";
 export const DELETE_TASK = "DELETE_TASK";
 
 export const addTask = task => {
+  console.log("Action: ", task);
   return {
     type: ADD_TASK,
     payload: task
