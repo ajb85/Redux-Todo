@@ -23,7 +23,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   const payload = action.payload;
-  console.log("Reducer: ", payload);
   switch (action.type) {
     case ADD_TASK:
       return {
