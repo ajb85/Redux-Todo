@@ -31,9 +31,10 @@ export default (state = initialState, action) => {
     case TOGGLE_TASK:
       const toggle = state.todo[payload];
       toggle.complete = !toggle.complete;
+
       return {
         todo: [
-          ...state.todo.slice(payload),
+          ...state.todo.slice(0, payload),
           toggle,
           ...state.todo.slice(payload + 1)
         ]
@@ -44,7 +45,10 @@ export default (state = initialState, action) => {
       };
     case DELETE_TASK:
       return {
-        todo: [...state.todo.slice(payload), ...state.todo.slice(payload + 1)]
+        todo: [
+          ...state.todo.slice(0, payload),
+          ...state.todo.slice(payload + 1)
+        ]
       };
     default:
       return state;
