@@ -12,13 +12,29 @@ class App extends Component {
   };
   render() {
     const list = this.props.todo.map((item, i) => {
-      let style = { fontSize: "18px", width: "200px", cursor: "pointer" };
+      let style = {
+        fontSize: "18px",
+        width: "200px",
+        cursor: "pointer",
+        display: "flex"
+      };
       if (item.complete) {
         style.textDecoration = "line-through";
       }
       return (
-        <li onClick={() => this.props.toggleTask(i)} style={style}>
-          {item.value}
+        <li style={style}>
+          <p onClick={() => this.props.toggleTask(i)}>{item.value}</p>{" "}
+          <button
+            style={{
+              backgroundColor: "transparent",
+              color: "red",
+              border: "transparent"
+            }}
+            type="button"
+            onClick={() => this.props.deleteTask(i)}
+          >
+            X
+          </button>
         </li>
       );
     });
